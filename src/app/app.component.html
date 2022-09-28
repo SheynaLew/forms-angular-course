@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
-      <form>
+      <form (ngSubmit)="onSubmit(f)" #f="ngForm" >
         <div id="user-data">
           <div class="form-group">
             <label for="username">Username</label>
@@ -12,7 +12,7 @@
               ngModel
               name="username"
               >
-              //ngModel is a directive made avaiblae in FormsModule and tells Angular that its a form control
+              <!-- ngModel is a directive made available in FormsModule and tells Angular that its a form control -->
           </div>
           <button class="btn btn-default" type="button">Suggest an Username</button>
           <div class="form-group">
