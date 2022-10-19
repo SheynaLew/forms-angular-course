@@ -11,6 +11,14 @@ export class AppComponent {
   defaultValue = "pet";
   answer = "";
   genders = ["Male", "Female", "Non-binary", "Gender-fluid", "Other", "Prefer not to say"];
+  user = {
+    username: '',
+    email: '',
+    secretQuestion: '',
+    secretAnswer: '',
+    gender: ''
+  }
+  submitted = false;
 
   suggestUserName() {
     const suggestedName = 'Superuser';
@@ -41,5 +49,11 @@ export class AppComponent {
   //Alternative method to submit the form using viewchild - useful to access form before it is submitted
   onSubmit() {
     console.log(this.signupForm);
+    this.submitted = true;
+    this.user.username = this.signupForm.value.userData.username;
+    this.user.email = this.signupForm.value.userData.email;
+    this.user.secretQuestion = this.signupForm.value.secret;
+    this.user.secretAnswer = this.signupForm.value.questionAnswer;
+    this.user.gender = this.signupForm.value.gender;
   }
 }
