@@ -14,7 +14,24 @@ export class AppComponent {
 
   suggestUserName() {
     const suggestedName = 'Superuser';
+    // The below works, BUT it resets the entire form, so if you're entering data and then clicking the button, it will clear everything you've entered.
+    // this.signupForm.setValue({
+    //   userData: {
+    //     username: suggestedName,
+    //     email: '',
+    //   },
+    //   secret: 'pet',
+    //   questionAnswer: '',
+    //   gender: this.genders[5]
+    // })
+    // This method is better as you can target specific aspects of the form:
+    this.signupForm.form.patchValue({
+      userData: {
+        username: suggestedName
+      }
+    })
   }
+
 
   //Pass form to onSubmit method
   // onSubmit(form: NgForm) {
